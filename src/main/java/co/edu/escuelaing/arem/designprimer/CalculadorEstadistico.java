@@ -25,17 +25,21 @@ public class CalculadorEstadistico {
         System.out.println(mean);
         System.out.println("LA DESVIACIÓN ESTANDARD ES DE:");
         System.out.println(op.standartDeviationCalculator(mean));
-        get("/media", (req, res) -> ("<!DOCTYPE html>"+
+        get("/input", (req, res) -> ("<!DOCTYPE html>"+
                                     "<html>"+
                                     "<body>"+
-                                    "<form action='/action_page.php'>"+
-                                    "First name: <input type='text' name='FirstName' value='Mickey'><br>"+
-                                    "Last name: <input type='text' name='LastName' value='Mouse'><br>"+
-                                    "<input type='submit' value='Submit'>" +
+                                    "<form action='/calculadorEstadistico/'>"+
+                                    "<p>Bandeja de entrada de los números:</p>"+
+                                    "<input type='text' name='Data' value=''><br>"+
+                                    "<input type='submit' value='Procesar'>" +
                                     "</form>"+
-                                    "<p>Click the 'Submit' button and the form-data will be sent to a page on the server called '/action_page.php'.</p>"+
                                     "</body>"+
                                     "</html>"));
+        
+        get("/calculadorEstadistico/:data", (request, response) -> {
+            return "SOLUCIÓN:" + request.params(":data");
+        });
+        
 
     }
 
