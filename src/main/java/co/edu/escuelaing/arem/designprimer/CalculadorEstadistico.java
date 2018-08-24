@@ -12,32 +12,25 @@ public class CalculadorEstadistico {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
-        
-        
-        
-        DataRecollector a = new DataRecollector();
-        MyLinkedList data= a.readTxt("datos.txt");
-        DataOperator op = new DataOperator(data);
-        float mean=op.meanCalculator();
-        System.out.println("LA MEDIA ES DE:");
-        System.out.println(mean);
-        System.out.println("LA DESVIACIÓN ESTANDARD ES DE:");
-        System.out.println(op.standartDeviationCalculator(mean));
+
         get("/input", (req, res) -> ("<!DOCTYPE html>"+
                                     "<html>"+
                                     "<body>"+
-                                    "<form action='/calculadorEstadistico/'>"+
                                     "<p>Bandeja de entrada de los números:</p>"+
-                                    "<input type='text' name='Data' value=''><br>"+
-                                    "<input type='submit' value='Procesar'>" +
+                                    "<form action='/output/'>"+
+                                    "<input type='text' name='data'><br>"+
+                                    "<input type='submit' value='Continue'>" +
                                     "</form>"+
                                     "</body>"+
                                     "</html>"));
-        
-        get("/calculadorEstadistico/:data", (request, response) -> {
-            return "SOLUCIÓN:" + request.params(":data");
+       
+        get("/output/*", (request, response) -> {
+            DataRecollector a = new DataRecollector();
+            MyLinkedList data= a.readWebInfo((String)request.splat()[0]);
+            DataOperator op = new DataOperator(data);
+            float mean=op.meanCalculator();
+            return "MEDIA ESTADÍSTICA....." + mean + "......DESVIACIÓN ESTÁNDARD:"+ op.standartDeviationCalculator(mean);
+       
         });
         
 

@@ -16,7 +16,7 @@ public class DataRecollector {
     
     public MyLinkedList readTxt(String direction){
         
-        // Read a txt document and convert to MyLinkedList Class
+        // Read an online document and convert to MyLinkedList Class
         
         MyLinkedList numbers=null;
         try{
@@ -33,6 +33,15 @@ public class DataRecollector {
                 
         }
         return numbers;
+    }
+    
+    public MyLinkedList readWebInfo(String data){
+        MyLinkedList temp = new MyLinkedList();
+        String[] dataNumbers= data.split(" ");
+        for(int i=0; i<dataNumbers.length;i++){
+            temp.addNode(Integer.parseInt(dataNumbers[i]));
+        }
+        return temp;
     }
     
 }
