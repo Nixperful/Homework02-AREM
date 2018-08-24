@@ -33,11 +33,16 @@ public class CalculadorEstadistico {
             DataOperator op = new DataOperator(data);
            
             float mean=op.meanCalculator();
-            return "MEDIA ESTADÍSTICA....." + mean + "\n"+
-                    "......DESVIACIÓN ESTÁNDARD:"+ op.standartDeviationCalculator(mean);
-            
-            
-       
+            return 
+                    ("<!DOCTYPE html>"+
+                        "<html>"+
+                        "<body>"+
+                        "<h2>Media Estadística: </h2>"+
+                        mean+
+                        "<h2>Desviación Estándard: </h2>"+
+                        op.standartDeviationCalculator(mean)+
+                        "</body>"+
+                        "</html>");
         });
         
 
