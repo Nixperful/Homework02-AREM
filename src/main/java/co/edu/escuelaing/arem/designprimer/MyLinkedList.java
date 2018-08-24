@@ -21,7 +21,7 @@ class MyLinkedList {
         actualNode=null;
     }
 
-    public void addNode(Integer value){
+    public void addNode(float value){
         
         MyNode newNode= new MyNode(value);
         if(length==0){

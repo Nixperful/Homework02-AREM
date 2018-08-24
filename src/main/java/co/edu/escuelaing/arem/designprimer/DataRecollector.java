@@ -37,10 +37,13 @@ public class DataRecollector {
     
     public MyLinkedList readWebInfo(String data){
         MyLinkedList temp = new MyLinkedList();
+        System.out.println(data);
         String[] dataNumbers= data.split(" ");
+        
         for(int i=0; i<dataNumbers.length;i++){
-            temp.addNode(Integer.parseInt(dataNumbers[i]));
-        }
+            temp.addNode(Float.parseFloat(dataNumbers[i]));
+            System.out.println(Float.parseFloat(dataNumbers[i]));
+        }        
         return temp;
     }
     

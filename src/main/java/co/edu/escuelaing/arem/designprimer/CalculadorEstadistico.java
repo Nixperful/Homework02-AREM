@@ -24,12 +24,19 @@ public class CalculadorEstadistico {
                                     "</body>"+
                                     "</html>"));
        
-        get("/output/*", (request, response) -> {
+        get("/output/", (request, response) -> {
+            
             DataRecollector a = new DataRecollector();
-            MyLinkedList data= a.readWebInfo((String)request.splat()[0]);
+
+            MyLinkedList data= a.readWebInfo((String)request.queryParams("data"));
+            
             DataOperator op = new DataOperator(data);
+           
             float mean=op.meanCalculator();
-            return "MEDIA ESTADÍSTICA....." + mean + "......DESVIACIÓN ESTÁNDARD:"+ op.standartDeviationCalculator(mean);
+            return "MEDIA ESTADÍSTICA....." + mean + "\n"+
+                    "......DESVIACIÓN ESTÁNDARD:"+ op.standartDeviationCalculator(mean);
+            
+            
        
         });
         

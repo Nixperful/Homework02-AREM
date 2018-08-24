@@ -11,9 +11,9 @@ package co.edu.escuelaing.arem.designprimer;
  */
 class MyNode {
     MyNode nextNode;
-    Integer value;
+    float value;
 
-    public MyNode(Integer value) {
+    public MyNode(float value) {
         this.value = value;
     }
 
@@ -21,7 +21,7 @@ class MyNode {
         this.nextNode = nextNode;
     }
 
-    public Integer getValue() {
+    public float getValue() {
         return value;
     }
 
