@@ -4,5 +4,5 @@
 
 Nicolás Osorio Arias
 
-LINK HEROKU : https://calculadora-estadistica.herokuapp.com/
+LINK HEROKU : https://calculadora-estadistica.herokuapp.com/input
 
