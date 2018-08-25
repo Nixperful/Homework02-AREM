@@ -12,11 +12,13 @@ public class CalculadorEstadistico {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
+        port(getPort());
         get("/input", (req, res) -> ("<!DOCTYPE html>"+
                                     "<html>"+
                                     "<body>"+
-                                    "<p>Bandeja de entrada de los números:</p>"+
+                                    "<h2>Bandeja de entrada de los números:</h2>"+
+                                    "<h3>(Introduzca los números separados por un espacio, y escribir los números reales con punto)</h2>"+
                                     "<form action='/output/'>"+
                                     "<input type='text' name='data'><br>"+
                                     "<input type='submit' value='Continue'>" +
